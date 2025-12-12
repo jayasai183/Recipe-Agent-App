@@ -1,0 +1,24 @@
+sources:
+  my-sqlite-db:
+    kind: sqlite
+    database: "C:\\Users\\sriha\\RecipeAgent\\Recipes.db"
+
+tools:
+  execute_sql_tool:
+    kind: sqlite-execute-sql
+    source: my-sqlite-db
+    description: >
+      Use this tool to execute a SQL statement.
+
+      A highly capable tool for executing SQL queries against the four
+      Recipe Agent database tables. ALWAYS use this tool for questions 
+      regarding recipes, ingredients, or inventory. 
+      
+      The database schema is as follows:
+      - Recipes (RecipeID, Name, Cuisine, PrepTime, CookTime, Instructions)
+      - Ingredients (IngredientID, IngredientName, Unit)
+      - Recipe_Ingredients (RecipeID, IngredientID, Quantity, UnitNeeded)
+      - Inventory (IngredientID, StockQuantity, StockUnit)
+      
+      Use SQL joins (e.g., JOIN Recipe_Ingredients ON ...) and WHERE clauses 
+      (e.g., WHERE Cuisine='Italian') as needed to answer the user's request.
